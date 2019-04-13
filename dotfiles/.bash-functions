@@ -1,0 +1,6 @@
+makeandclear () {
+	make wc | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} '^[0-9][0-9]*'
+	sleep 2
+	clear
+}
+

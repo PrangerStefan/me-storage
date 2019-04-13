@@ -1,0 +1,14 @@
+fileall () {
+	for filename in ./*; do 
+		file "$filename";
+	done;
+}
+
+catall () {
+	for filename in ./*.txt; do
+		clear;
+		cat "$filename";
+		read;
+	done;
+	clear;
+}

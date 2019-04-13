@@ -1,0 +1,29 @@
+netconv () {
+	netconvert --node-files=$1.nod.xml --edge-files=$1.edg.xml --connection-files=$1.con.xml --output-file=$1.net.xml
+}
+
+osmconv () {
+netconvert --type-files ../osmNetconvertUrbanDe.typ.xml --ramps.guess --remove-edges.by-vclass hov,taxi,bus,delivery,truck,tram,rail_urban,rail,rail_electric,motorcycle,bicycle,pedestrian --geometry.remove --remove-edges.isolated --tls.join --verbose --osm-files $1.osm --output-file $1.net.xml
+}
+
+osmconv_small () {
+netconvert --type-files ../osmNetconvertUrbanDe.typ.xml --osm-files $1.osm --output-file $1.net.xml
+}
+
+randomTrips () {
+	$SUMO_HOME/tools/randomTrips.py -n $1.net.xml -b $2 -e $3 -p $4 --route-file $1.rou.xml
+}
+
+buildMap () {
+	osmconv map; randomTrips map 20 1000 300; sumo-gui map.sumocfg; 
+}
+
+runSim () {
+	python newShieldLaneReader.py $1 $2 $3 $4
+	echo "DONE"
+}
+
+createShield () {
+	python dfaMDP.py $1 specs/$2
+	python Abstraction.py $3 specs/$1_x_$2 
+}

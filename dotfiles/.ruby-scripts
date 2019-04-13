@@ -1,0 +1,29 @@
+function rc() {
+	ruby -v
+	echo "Are you using the right ruby version?"
+	ruby -v | grep 2.3 > /dev/null
+	if [[ $? -ne 0 ]]; then
+		rvm use 2.3.0
+		echo "changed version to 2.3.0"
+		ruby -v
+	else
+		echo "Yes!"
+	fi
+	rails c
+}
+
+function rs() {
+	ruby -v
+	echo "Are you using the right ruby version?"
+	ruby -v | grep 2.3 > /dev/null
+	if [[ $? -ne 0 ]]; then
+		rvm use 2.3.0
+		echo "changed version to 2.3.0"
+		ruby -v
+	else
+		echo "Yes!"
+	fi
+	rails s
+}
+
+

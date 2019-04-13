@@ -1,0 +1,32 @@
+* Personal TODO [1/3]
+   - [X] set up dot file sync
+   - [ ] set up git repo for this directory
+   - [ ] 
+
+* HTU
+  - Schachkurs -> Raumansuchen
+
+* Traffic [0/3]
+ - [ ] Build Storm 
+    -> Do I need to open an issue?
+      => cannot build CArl
+      => 'utility/constants.cpp' build error unknown function isnan() -> std::isnan()
+      => Check C++11 template functions
+ - [ ] How do they setup the MDP?
+
+* Uni [0/2]
+ - [ ] AKDV: games and strategies
+ - [ ] CI: 1.2 on NN
+ - [ ] OS: fslib, fork, exec, userman
+  
+  ** Sapphire [0/5]
+   - [ ] add submitter_id to submissionAsset
+   - [ ] specs for submitter_id in submissionAsset
+   - [ ] change submitter in submission tree to use column from submissionAsset
+   - [ ] open issue for evaluation comments
+   - [ ] check code for evaluation comments
+
+  ** HCI [1/1]
+   - [ ] evaluate individual submission 2a  
+
+
