@@ -19,12 +19,13 @@
  - [ ] CI: 1.2 on NN
  - [ ] OS: fslib, fork, exec, userman
   
-  ** Sapphire [0/5]
-   - [ ] add submitter_id to submissionAsset
-   - [ ] specs for submitter_id in submissionAsset
-   - [ ] change submitter in submission tree to use column from submissionAsset
-   - [ ] open issue for evaluation comments
-   - [ ] check code for evaluation comments
+  ** Sapphire [5/6]
+   - [X] add submitter_id to submissionAsset
+   - [X] specs for submitter_id in submissionAsset
+   - [X] change submitter in submission tree to use column from submissionAsset
+   - [X] open issue for evaluation comments
+   - [X] check code for evaluation comments
+   - [ ] open a PR for evaluation comments
 
   ** HCI [1/1]
    - [ ] evaluate individual submission 2a  
