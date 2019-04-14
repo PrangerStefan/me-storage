@@ -98,8 +98,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#syncdotfiles at start of every shell
-syncdotfiles >> /dev/null
 
 export SUMO_HOME="/usr/share/sumo"
 export PATH=$PATH":$HOME/bin"
@@ -170,4 +168,4 @@ GUI () {
 export PATH=$HOME/local/bin:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk-11
 
-
+syncdotfiles >> /dev/null
