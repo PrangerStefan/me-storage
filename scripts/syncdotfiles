@@ -1,0 +1,59 @@
+#!/bin/bash
+declare -a dotfiles
+declare -a scripts
+
+DOTFILESDIR=$HOME/me/dotfiles
+SCRIPTSDIR=$HOME/me/scripts
+
+dotfiles=(
+	$HOME/.zshrc
+	$HOME/.config/awesome/rc.lua
+	$HOME/.config/awesome/themes/multicolor/theme.lua
+	$HOME/.zsh/hcialias
+	$HOME/.ruby-scripts
+	$HOME/.bash-functions
+	$HOME/.sumo-functions
+	$HOME/.custom-commands
+	$HOME/.gitconfig
+	)
+
+scripts=(
+	$HOME/local/bin/syncdotfiles
+	)
+
+mkdir $DOTFILESDIR -p 
+mkdir $SCRIPTSDIR -p
+
+sync_array_into_folder() {
+	local directory=$1
+	shift
+	declare -a array=("${@}")
+  declare -i len=${#array[@]}
+  for ((n = 0; n < len; n++)); do
+    file="${array[$n]}"
+		if [ ! -e $file ]; then
+			echo $file "does not exist, skipping"
+			notify-send $file "tried to sync but does not exist, skipping" -t 4500
+			break
+		fi
+		filename=$(basename $file)
+		if [ -f $directory/$filename ]; then
+			DIFF=$(diff $file $directory/$filename) 
+			if [ "$DIFF" != "" ]; then
+				notify-send $file "was modified, you might want to push to git" -t 4500
+			  echo $file "was modified, copying to" $directory
+			  echo "diff:"$DIFF
+				cp $file $directory
+			else
+			  echo $file "was not modified, skipping."
+			fi
+		else
+			echo "adding new file:" $file "to" $directory
+			cp $file $directory
+		fi
+	done
+}
+
+
+sync_array_into_folder $DOTFILESDIR "${dotfiles[@]}"
+sync_array_into_folder $SCRIPTSDIR "${scripts[@]}"
