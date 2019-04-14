@@ -1,23 +1,28 @@
-* Personal TODO [1/3]
-   - [X] set up dot file sync
-   - [ ] set up git repo for this directory
-   - [ ] 
+* Personal TODO [0/1]
+   - [ ] Sibylle Berg - GRM kaufen 
 
 * HTU
   - Schachkurs -> Raumansuchen
 
 * Traffic [0/3]
- - [ ] Build Storm 
+ - [ ] Build Storm [[http://www.stormchecker.org/]]
     -> Do I need to open an issue?
       => cannot build CArl
       => 'utility/constants.cpp' build error unknown function isnan() -> std::isnan()
       => Check C++11 template functions
+    -> issue informations:
+      gcc --version: 5.4
  - [ ] How do they setup the MDP?
 
-* Uni [0/2]
+* Uni [0/3]
  - [ ] AKDV: games and strategies
  - [ ] CI: 1.2 on NN
- - [ ] OS: fslib, fork, exec, userman
+ - [ ] OS: [0/3]
+   - [ ] fslib
+   - [ ] fork & exec -> check with Endrit
+   - [ ] user management:
+     - [ ] adduser, removeuser
+     - [ ] fileowner
   
   ** Sapphire [5/6]
    - [X] add submitter_id to submissionAsset
@@ -27,7 +32,7 @@
    - [X] check code for evaluation comments
    - [ ] open a PR for evaluation comments
 
-  ** HCI [1/1]
+  ** HCI [0/1]
    - [ ] evaluate individual submission 2a  
 
 
