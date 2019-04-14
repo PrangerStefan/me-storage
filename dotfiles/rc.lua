@@ -414,26 +414,26 @@ globalkeys = my_table.join(
               {description = "show weather", group = "widgets"}),
 
     -- Brightness
-    awful.key({ }, "#71", function () os.execute(string.format("light -A 5")) end,
-              {description = "backlight +5%", group = "hotkeys"}),
-    awful.key({ }, "#72", function () os.execute(string.format("light -U 5")) end,
+    awful.key({ }, "#232", function () os.execute(string.format("light -U 5")) end,
               {description = "backlight -5%", group = "hotkeys"}),
+    awful.key({ }, "#233", function () os.execute(string.format("light -A 5")) end,
+              {description = "backlight +5%", group = "hotkeys"}),
 
     -- ALSA volume control
-    awful.key({ }, "#67",
+    awful.key({ }, "#121",
         function ()
             os.execute(string.format("amixer -D pulse set Master 1+ toggle", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume mute", group = "hotkeys"}),
     
-    awful.key({ }, "#68",
+    awful.key({ }, "#122",
         function ()
             os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume down", group = "hotkeys"}),
-    awful.key({ }, "#69",
+    awful.key({ }, "#123",
         function ()
             os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
             beautiful.volume.update()
