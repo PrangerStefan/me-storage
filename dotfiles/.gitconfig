@@ -1,0 +1,35 @@
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  st = status
+  d  = diff
+  c = commit 
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = blue bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = blue
+[user]
+	name = Stefan Pranger
+	email = stefan.pranger@student.tugraz.at
+[core]
+	editor = vim
+	trustctime = false
+[push]
+	default = simple
+[credential]
+[credential]
+[credential]
+	helper = cache --timeout 7200
+
