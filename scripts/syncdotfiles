@@ -19,6 +19,7 @@ dotfiles=(
 
 scripts=(
 	$HOME/local/bin/syncdotfiles
+	$HOME/local/bin/gitc
 	)
 
 mkdir $DOTFILESDIR -p 

@@ -1,0 +1,57 @@
+#!/bin/bash
+gitst=`git st --porcelain`
+
+ask_for_commit() {
+	filename=$1
+	#echo "$(cat /tmp/diffs/"${filename//\//_}")"
+	echo staged files:
+	echo "$(git d --name-only --cached)"
+	echo "do you want to commit these changes? [y/n]"
+	read -n1 -s option
+	case $option in 
+		y|Y)
+			git c
+			;;
+		n|N)
+			break
+			;;
+		*)
+			ask_for_commit
+	esac
+}
+
+display_options() {
+	filename=$1
+	echo options for $filename:
+	echo "(a)dd to commit, (s)kip or lock at (d)iff again" 
+	read -n1 -s option   
+	case $option in 
+		a)
+			git d --color $file > /tmp/diffs/"${filename//\//_}"
+			git add $file
+			echo added $file!
+			ask_for_commit $file
+			;;
+		s)
+			echo skipped $file ...
+			continue
+			;;
+		d)
+			git d $file
+			clear
+			display_options $file
+			;;
+		*)
+			clear
+			display_options $file
+			;;
+	esac 
+}
+
+clear
+for file in $(git st --porcelain | cut -c4-); do
+	git d $file
+	display_options $file
+done
+clear
+git st
