@@ -108,7 +108,7 @@ alias download="youtube-dl -i --extract-audio --audio-format mp3 --audio-quality
 alias whereami="pwd"
 alias whatdoes="declare -f $1"
 alias prettyjson='python -m json.tool'
-alias todo="subl ~/me"
+alias todo="subl ~/me ~/me/todo.org"
 
 if [ -f ~/.zsh/hcialias ]; then
     source ~/.zsh/hcialias
