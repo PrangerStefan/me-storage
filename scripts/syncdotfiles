@@ -15,6 +15,7 @@ dotfiles=(
 	$HOME/.sumo-functions
 	$HOME/.custom-commands
 	$HOME/.gitconfig
+	$HOME/.vimrc
 	)
 
 scripts=(
