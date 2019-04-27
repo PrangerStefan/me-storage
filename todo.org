@@ -1,11 +1,16 @@
 * Personal TODO [0/1]
    - [ ] Sibylle Berg - GRM kaufen 
 
-* HTU
-  - Schachkurs -> Raumansuchen
+* HTU [1/6]
+  - [ ] What does FFF plan to do regarding universities? 
+  - [ ] Sus @ TU -> template? [[mailto:]]
+  - [ ] BNE Certificate at NaTa ? 
+  - [X] AG BNE Halbtagstreffen - summary for GIN
+  - [ ] Ideas regarding options for report/02.05. 
+  - [ ] SDGs @ NaTa?
 
-* Traffic [0/3]
- - [ ] Build Storm [[http://www.stormchecker.org/]]
+* Traffic [1/2]
+ - [X] Build Storm [[http://www.stormchecker.org/]]
     -> Do I need to open an issue?
       => cannot build CArl
       => 'utility/constants.cpp' build error unknown function isnan() -> std::isnan()
@@ -13,29 +18,38 @@
     -> issue informations:
       gcc --version: 5.4
  - [ ] How do they setup the MDP?
+    -> Input?
 
 * Uni [0/3]
  - [ ] AKDV: games and strategies
- - [ ] CI: 1.2 on NN
+ - [-] CI: NN [2/5]
+  - [X] 1.2
+  - [X] 2
+  - [ ] Report 
+  - [ ] Comments in code
+  - [ ] LaTeX Skeleton  
  - [ ] OS: [0/3]
-   - [ ] fslib
-     - [ ] file descriptors
-     - [ ] pipes
-     - [ ] echo and test cat
+   - [-] fslib
+     - [ ] correct open/write/read error codes
+     - [ ] shell pipes
+     - [ ] dup2
+     - [X] file descriptors
+     - [X] pipes
+     - [X] echo and test cat
    - [ ] fork & exec -> check with Endrit
    - [ ] user management:
      - [ ] adduser, removeuser
      - [ ] fileowner
   
   ** Sapphire [5/6]
-   - [X] add submitter_id to submissionAsset
-   - [X] specs for submitter_id in submissionAsset
-   - [X] change submitter in submission tree to use column from submissionAsset
-   - [X] open issue for evaluation comments
-   - [X] check code for evaluation comments
+   - [ ] evaluation result PR
+   - [ ] specs for submitter column
    - [ ] open a PR for evaluation comments
+   - [ ] discuss evaluation comments with Keith and answer Mathias 
 
-  ** HCI [0/1]
-   - [ ] evaluate individual submission 2a  
+  ** HCI [1/1]
+   - [X] evaluate individual submission 2a  
+   - [ ] evaluate 2b
+   - [ ] evaluate 3
 
 
