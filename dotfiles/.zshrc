@@ -169,3 +169,5 @@ export PATH=$HOME/local/bin:$PATH
 export JAVA_HOME=/usr/lib/jvm/jdk-11
 
 syncdotfiles >> /dev/null
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
