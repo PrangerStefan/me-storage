@@ -77,3 +77,13 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" optional reset cursor on start:
+" augroup myCmds
+" au!
+" autocmd VimEnter * silent !echo -ne "\e[2 q"
+" augroup END
