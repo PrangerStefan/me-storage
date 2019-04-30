@@ -1,9 +1,11 @@
 #!/bin/bash
 declare -a dotfiles
 declare -a scripts
+declare -a configs
 
 DOTFILESDIR=$HOME/me/dotfiles
 SCRIPTSDIR=$HOME/me/scripts
+CONFIGSDIR=$HOME/me/configs
 
 dotfiles=(
 	$HOME/.zshrc
@@ -23,8 +25,13 @@ scripts=(
 	$HOME/local/bin/gitc
 	)
 
+configs=(
+  $HOME/.config/.git-zsh
+)
+
 mkdir $DOTFILESDIR -p 
 mkdir $SCRIPTSDIR -p
+mkdir $CONFIGSDIR -p
 
 sync_array_into_folder() {
 	local directory=$1
@@ -59,3 +66,4 @@ sync_array_into_folder() {
 
 sync_array_into_folder $DOTFILESDIR "${dotfiles[@]}"
 sync_array_into_folder $SCRIPTSDIR "${scripts[@]}"
+sync_array_into_folder $CONFIGSDIR "${configs[@]}"
