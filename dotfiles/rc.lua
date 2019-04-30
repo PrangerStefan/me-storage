@@ -56,7 +56,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "unclutter" }) -- entries must be separated by commas
+run_once({ "unclutter", "xcompmgr" }) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
 --[[
@@ -88,7 +88,7 @@ local themes = {
 local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "terminator"
+local terminal     = "st"
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = "gvim"
 local browser      = "firefox"
@@ -99,9 +99,9 @@ awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    --awful.layout.suit.tile.left,
-    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
@@ -110,10 +110,10 @@ awful.layout.layouts = {
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
-    --awful.layout.suit.corner.ne,
-    --awful.layout.suit.corner.sw,
-    --awful.layout.suit.corner.se,
+    awful.layout.suit.corner.nw,
+    awful.layout.suit.corner.ne,
+    awful.layout.suit.corner.sw,
+    awful.layout.suit.corner.se,
     --lain.layout.cascade,
     --lain.layout.cascade.tile,
     --lain.layout.centerwork,
@@ -353,6 +353,10 @@ globalkeys = my_table.join(
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
               {description = "decrement useless gaps", group = "tag"}),
 
+    awful.key({ modkey, "Control"    }, "Right",     function () awful.tag.incmwfact( 0.01)    end),
+    awful.key({ modkey, "Control"    }, "Left",     function () awful.tag.incmwfact(-0.01)    end),
+    awful.key({ modkey, "Control"    }, "Down",     function () awful.client.incwfact( 0.01)    end),
+    awful.key({ modkey, "Control"    }, "Up",     function () awful.client.incwfact(-0.01)    end),
     -- Dynamic tagging
     awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
               {description = "add new tag", group = "tag"}),
