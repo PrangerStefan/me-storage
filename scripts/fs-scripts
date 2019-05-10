@@ -1,0 +1,44 @@
+bm () {  
+  listdirs "$(pwd)" | awk '!a[$0]++' >> $HOME/.bmdirs 
+}
+
+listdirs () {
+  if [ $# -eq 1 ]; then
+    ROOT_DIR=$1
+  else
+    ROOT_DIR=.
+  fi
+
+  find $ROOT_DIR -type d -print | sed "/^.*\.git.*$/d"
+}
+
+move() { cp -v "$1" "$(cat $HOME/.bmdirs | fzf | sed "s|~|$HOME|")" ;}
+vf() { fzf | xargs -r -I % % $EDITOR % ;}
+
+mot() { cd "$(cat $HOME/.bmdirs | fzf | sed "s|~|$HOME|")" ;}
+
+or() {
+  searchterm=$1
+  results=$(tree -fih | grep -E "$searchterm" | awk '{print $3}' | sed -r '/^\s*$/d')
+  shift 
+  if [ $# -eq 0 ]; then
+    op "$( echo $results | fzf )"
+  else
+    while test $# -gt 0; do
+          case "$1" in
+            -a)
+              while read -r line; do op $line; done <<< $results
+              shift
+              ;;
+            -h|*) 
+              echo "This function is declared in $HOME/me/scripts"
+              echo "searches your pwd and lets you chose to open files which match the passed searchterm"
+              echo "flags:"
+              echo "-a opens all matches"
+              echo "-h displays this help message"
+              shift
+              ;;
+           esac
+    done
+  fi
+}

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+connection_state="$({
+    printf "info 2C:41:A1:84:B5:18\n"
+    printf "quit\n"
+  } | bluetoothctl | grep "Connected:" | awk '{print $2}')"
+
+if [ "$connection_state" == "no" ]; then
+  echo "Attempting to connect..."
+  {
+    printf "connect 2C:41:A1:84:B5:18\n"
+    sleep 3
+    printf "quit\n"
+  } | bluetoothctl >> /dev/null
+  echo "Done!"
+else
+  echo "Disconnecting..."
+  {
+    printf "disconnect 2C:41:A1:84:B5:18\n"
+    sleep 3
+    printf "quit\n"
+  } | bluetoothctl >> /dev/null
+fi
