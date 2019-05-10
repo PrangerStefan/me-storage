@@ -2,9 +2,24 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" Plugins
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+
+
 "incsearch currently not working
 :set incsearch
 :set hlsearch 
+
+:set ignorecase
 
 "hybrid line numbers only on the focused buffer
 :set number relativenumber
