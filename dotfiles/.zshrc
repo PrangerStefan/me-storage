@@ -41,10 +41,10 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -114,6 +114,10 @@ alias prettyjson='python -m json.tool'
 alias todo="subl ~/me ~/me/todo.org"
 alias ret="echo $?"
 alias sd="du -aH | grep $1"
+alias ls="ls -altr --color=always"
+alias :q="exit"
+alias im="sxiv"
+
 if [ -f ~/.zsh/hcialias ]; then
     source ~/.zsh/hcialias
 else
@@ -140,6 +144,7 @@ source ~/.ruby-scripts
 source ~/.bash-functions
 source ~/.sumo-functions
 source ~/.custom-commands
+source ~/me/scripts/fs-scripts
 
 export GREP_COLOR="1;37;42"
 
@@ -175,3 +180,6 @@ export JAVA_HOME=/usr/lib/jvm/jdk-11
 syncdotfiles >> /dev/null
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS="--reverse --ansi"
+export PATH="${PATH}:/home/stefan/.fzf/bin/fzf"
