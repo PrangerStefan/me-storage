@@ -23,6 +23,7 @@ dotfiles=(
 scripts=(
 	$HOME/local/bin/syncdotfiles
 	$HOME/local/bin/gitc
+	$HOME/local/bin/fs-scripts
 	)
 
 configs=(

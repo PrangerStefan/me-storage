@@ -1,21 +1,33 @@
 bm () {  
-  listdirs "$(pwd)" | awk '!a[$0]++' >> $HOME/.bmdirs 
+  if [ "$1" == "." ]; then
+    echo "$(pwd)" >> $HOME/.bmdirs
+  else
+    listdirs "$(pwd)" $1 >> $HOME/.bmdirs
+  fi
+  echo "$(cat $HOME/.bmdirs | awk '!a[$0]++')" > $HOME/.bmdirs
 }
 
 listdirs () {
-  if [ $# -eq 1 ]; then
+  if [ $# -ge 1 ]; then
     ROOT_DIR=$1
+    shift
   else
     ROOT_DIR=.
   fi
 
-  find $ROOT_DIR -type d -print | sed "/^.*\.git.*$/d"
+  find $ROOT_DIR -maxdepth $1 -type d -print | sed "/^.*\.git.*$/d" | sed "/.*\/\..*/d" 
 }
 
 move() { cp -v "$1" "$(cat $HOME/.bmdirs | fzf | sed "s|~|$HOME|")" ;}
 vf() { fzf | xargs -r -I % % $EDITOR % ;}
 
-mot() { cd "$(cat $HOME/.bmdirs | fzf | sed "s|~|$HOME|")" ;}
+j() {
+  if [ $# -eq 0 ]; then
+    cd "$(cat $HOME/.bmdirs | fzf | sed "s|~|$HOME|")" 
+  else
+    cd "$(cat $HOME/.bmdirs | grep -i $1 | fzf | sed "s|~|$HOME|")" 
+  fi 
+;}
 
 or() {
   searchterm=$1
@@ -42,3 +54,10 @@ or() {
     done
   fi
 }
+
+setwall () {
+  cp -v $1 $HOME/.config/awesome/themes/multicolor/wall.png
+
+}
+
+
