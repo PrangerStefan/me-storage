@@ -114,7 +114,7 @@ alias prettyjson='python -m json.tool'
 alias todo="subl ~/me ~/me/todo.org"
 alias ret="echo $?"
 alias sd="du -aH | grep $1"
-alias ls="ls -altr --color=always"
+alias l="ls -altr --color=always"
 alias :q="exit"
 alias im="sxiv"
 
