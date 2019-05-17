@@ -7,6 +7,10 @@ bm () {
   echo "$(cat $HOME/.bmdirs | awk '!a[$0]++')" > $HOME/.bmdirs
 }
 
+rmbm () {
+  cat $HOME/.bmdirs| grep -xv "$(pwd)" > $HOME/.bmdirs
+}
+
 listdirs () {
   if [ $# -ge 1 ]; then
     ROOT_DIR=$1
