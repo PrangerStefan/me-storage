@@ -117,6 +117,8 @@ alias sd="du -aH | grep $1"
 alias l="ls -altr --color=always"
 alias :q="exit"
 alias im="sxiv"
+alias t="task"
+alias wall="/usr/iocal/bin/wall"
 
 if [ -f ~/.zsh/hcialias ]; then
     source ~/.zsh/hcialias
