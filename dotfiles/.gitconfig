@@ -1,8 +1,13 @@
 [alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  st = status
+  lg = log --graph --pretty=format:'%Cred%h%Creset:%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  st = status 
   d  = diff
   c = commit 
+  co = checkout
+  quicklog = log --pretty=format:'%Cblue%h %Cred%cD %Creset%cn %Cgreen%s%Creset' --date-order --graph
+  cu = !git add -u && git commit 
+  ds = diff --staged
+
 [color]
   branch = auto
   diff = auto
@@ -20,16 +25,33 @@
   added = yellow
   changed = green
   untracked = blue
+[color "grep"]
+  linenumber = yellow bold
+  match = green 
+  filename = magenta   
 [user]
 	name = Stefan Pranger
 	email = stefan.pranger@student.tugraz.at
 [core]
 	editor = vim
 	trustctime = false
+	pager = less
+	excludesfile = /home/stefan/.gitignore
 [push]
 	default = simple
 [credential]
 [credential]
 [credential]
 	helper = cache --timeout 7200
-
+[pretty]
+  reflog = %C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)
+  log = fuller
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[diff]
+	tool = vimdiff
+	mnemonicprefix = true
+[grep]
+  lineNumber = true
+  heading = true
